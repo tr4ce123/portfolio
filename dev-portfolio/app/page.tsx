@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils"
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const homeRef = useRef<HTMLDivElement>(null)
   const aboutRef = useRef<HTMLDivElement>(null)
@@ -23,6 +24,7 @@ export default function Portfolio() {
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
     if (sectionRef.current) {
       sectionRef.current.scrollIntoView({ behavior: "smooth" })
+      setMobileMenuOpen(false) // Close mobile menu after clicking a link
     }
   }
 
@@ -257,9 +259,13 @@ export default function Portfolio() {
               <Linkedin className="h-5 w-5" />
             </a>
             <div className="md:hidden">
-              {/* Mobile menu button would go here */}
-              <Button variant="ghost" size="sm">
-                <span className="sr-only">Open menu</span>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              >
+                <span className="sr-only">{mobileMenuOpen ? "Close menu" : "Open menu"}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -272,15 +278,55 @@ export default function Portfolio() {
                   strokeLinejoin="round"
                   className="h-6 w-6"
                 >
-                  <line x1="4" x2="20" y1="12" y2="12" />
-                  <line x1="4" x2="20" y1="6" y2="6" />
-                  <line x1="4" x2="20" y1="18" y2="18" />
+                  {mobileMenuOpen ? (
+                    <>
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </>
+                  ) : (
+                    <>
+                      <line x1="4" x2="20" y1="12" y2="12" />
+                      <line x1="4" x2="20" y1="6" y2="6" />
+                      <line x1="4" x2="20" y1="18" y2="18" />
+                    </>
+                  )}
                 </svg>
               </Button>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu */}
+      <div 
+        className={`fixed inset-0 z-40 bg-[#1a1a1a]/95 backdrop-blur-sm transition-all duration-300 md:hidden ${
+          mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="container mx-auto px-4 py-20">
+          <div className="flex flex-col space-y-6 text-center">
+            {[
+              { id: "home", label: "Home", ref: homeRef },
+              { id: "about", label: "About", ref: aboutRef },
+              { id: "experience", label: "Experience", ref: experienceRef },
+              { id: "projects", label: "Projects", ref: projectsRef },
+              { id: "skills", label: "Skills", ref: skillsRef },
+              { id: "contact", label: "Contact", ref: contactRef },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.ref)}
+                className={cn(
+                  "text-xl font-medium transition-colors hover:text-white py-2",
+                  activeSection === item.id ? "text-white" : "text-gray-400",
+                )}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Scroll to top button */}
       <button

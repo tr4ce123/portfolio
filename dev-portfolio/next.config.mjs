@@ -5,7 +5,7 @@ try {
 } catch (e) {
   try {
     // fallback to CJS import
-    userConfig = await import("./v0-user-next.config")
+    userConfig = await import("./v0-user-next.config");
   } catch (innerError) {
     // ignore error
   }
@@ -27,22 +27,10 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Content-Security-Policy',
-            value: "img-src 'self' data:; default-src 'self';",
-          },
-        ],
-      },
-    ]
-  },
 }
 
 if (userConfig) {
+  // ESM imports will have a "default" property
   const config = userConfig.default || userConfig
 
   for (const key in config) {
