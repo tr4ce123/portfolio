@@ -367,9 +367,6 @@ export default function Portfolio() {
               About Me
               <ChevronDown className="h-4 w-4" />
             </Button>
-            <Button variant="outline" onClick={() => scrollToSection(experienceRef)}>
-              My Experience
-            </Button>
           </div>
         </div>
       </section>
@@ -491,7 +488,7 @@ export default function Portfolio() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="bg-[#252525] border-2 border-purple-500/20 overflow-hidden flex flex-col h-full transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/20">
+              <Card key={index} className="bg-[#252525] border-2 border-purple-500/20 overflow-hidden flex flex-col h-full">
                 <div className="h-48 bg-gray-800">
                   <img
                     src={`/${project.title.toLowerCase().replace(/\s+/g, '')}.png`}
