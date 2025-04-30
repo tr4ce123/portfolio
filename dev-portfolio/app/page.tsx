@@ -71,6 +71,7 @@ export default function Portfolio() {
         "TypeScript",
         "JavaScript",
         "Java",
+        "C++",
         "HTML/CSS",
         "Swift",
         "Go",
@@ -106,6 +107,7 @@ export default function Portfolio() {
       icon: <Database className="w-6 h-6" />,
       items: [
         "PostgreSQL",
+        "AWS",
         "MongoDB",
         "Firebase",
         "Google Cloud",
@@ -128,11 +130,25 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "Audiocode",
+      description: "A VSCode Extension that enables hands-free coding through voice commands, improving developer accessibility. Features a fine-tuned Hugging Face machine learning model (CodeT5 Transformer) for precise Python code translation from natural language.",
+      technologies: ["Python", "FastAPI", "PostgreSQL", "AWS EC2", "AWS RDS", "TypeScript", "Hugging Face"],
+      demoLink: "",
+      githubLink: "https://github.com/tr4ce123/audiocode",
+    },
+    {
       title: "SyllaByte",
       description: "Chrome Extension and React dashboard that extracts academic deadlines from PDF syllabi in one-click via a 92% accurate Python machine learning (NER) pipeline, automatically adding events to Google Calendar.",
       technologies: ["Python", "spaCy", "TypeScript", "React", "Flask", "PostgreSQL"],
       demoLink: "",
-      githubLink: "https://github.com/tr4ce123/syllabyte",
+      githubLink: "https://github.com/vluis26/Syllabyte",
+    },
+    {
+      title: "ncsbe-lib",
+      description: "An open-source library in JavaScript/TypeScript and Python that standardized the retrieval of over 2 million live election datapoints from the NC Board of Elections, streamlining access for journalists and civic tech developers.",
+      technologies: ["JavaScript", "TypeScript", "Python", "Open Source", "NPM", "PyPI"],
+      demoLink: "",
+      githubLink: "https://github.com/The-Daily-Tar-Heel/ncsbe-lib",
     },
     {
       title: "Bolt",
@@ -168,30 +184,42 @@ export default function Portfolio() {
     {
       title: "Software Engineer Intern",
       company: "Nutanix",
-      period: "May 2025 - August 2025",
+      period: "May 2025 - Present",
       description: "Excited to join the Core Performance team at Nutanix, where I'll be working on optimizing and enhancing system performance for enterprise cloud solutions.",
       achievements: [],
-      technologies: ["Python", "Ansible", "Shell Scripting"],
-      isFuture: true,
+      technologies: ["Python", "C++", "Ansible", "Shell Scripting"],
+      isCurrent: true,
     },
     {
-      title: "Software Engineer",
-      company: "App Team Carolina | Centible",
-      period: "September 2024 - Present",
-      description: "Building Centible, a student-focused finance app that helps college students track and understand their spending habits. Working with a talented team to create features that make personal finance more accessible and less intimidating for students.",
+      title: "Lead Software Engineer",
+      company: "Centible - App Team Carolina",
+      period: "May 2025 - Present",
+      description: "Leading the direction and development of Centible, a student-led startup comprised a 20-member Agile team, helping 500+ users track and understand their spending habits.",
       achievements: [
-        "Led development of 7 new features that improved user engagement",
-        "Grew user base to 300+ active students",
-        "Refactored backend infrastructure, reducing error rates by 90%",
-        "Built comprehensive testing framework with 100% coverage"
+        // "On track to generate over $5,500 in annual revenue through premium subscriptions and venture funding",
+        // "Led the development of X new features for the iOS app",
       ],
-      technologies: ["JavaScript", "Swift", "Firebase", "SQL", "Testing"],
+      technologies: ["Swift", "StoreKit API", "Firebase", "Agile Methodologies"],
       isCurrent: true,
     },
     {
       title: "Software Engineer",
+      company: "Centible - App Team Carolina",
+      period: "September 2024 - May 2025",
+      description: "Built core features and backend infrastructure for Centible, a student-led startup focused on personal finance management.",
+      achievements: [
+        "Led the development of 7 new features for the iOS app",
+        "Implemented Firebase Analytics for user tracking and engagement metrics",
+        "Built comprehensive testing framework with 100% coverage",
+        "Refactored deprecated backend infrastructure, reducing error rates by 90%"
+      ],
+      technologies: ["JavaScript", "Node.js", "Swift", "Firebase", "Google Cloud", "Unit/Integration Testing", "Swift Testing"],
+      isCurrent: false,
+    },
+    {
+      title: "Software Engineer",
       company: "The Daily Tar Heel",
-      period: "September 2024 - Present",
+      period: "September 2024 - May 2025",
       description: "Creating digital tools and applications that help The Daily Tar Heel, UNC's independent student newspaper, better serve its community. Building everything from election coverage tools to interactive puzzles that engage readers in new ways.",
       achievements: [
         "Developed 4 full-stack applications reaching 100,000+ monthly users",
@@ -200,7 +228,7 @@ export default function Portfolio() {
         "Launched real-time election map serving 1K+ concurrent users"
       ],
       technologies: ["React", "TypeScript", "Node.js", "Firebase", "JavaScript"],
-      isCurrent: true,
+      isCurrent: false,
     },
   ]
 
@@ -439,12 +467,18 @@ export default function Portfolio() {
               <div key={index} className="relative">
                 {/* Timeline connector - perfectly centered with the circle */}
                 {index !== experiences.length - 1 && (
-                  <div className="absolute left-3 top-3 bottom-[-48px] w-0.5 bg-gray-700"></div>
+                  <div className={cn(
+                    "absolute left-3 top-3 bottom-[-48px] w-0.5",
+                    (experience.isCurrent) ? "bg-gradient-to-b from-purple-400 to-blue-500" : "bg-gray-700"
+                  )}></div>
                 )}
 
                 <div className="flex items-start">
                   {/* Timeline dot - aligned with the line */}
-                  <div className="mt-0 mr-4 w-6 h-6 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 flex-shrink-0 flex items-center justify-center z-10">
+                  <div className={cn(
+                    "mt-0 mr-4 w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center z-10",
+                    (experience.isCurrent) ? "bg-gradient-to-r from-purple-400 to-blue-500" : "bg-gray-700"
+                  )}>
                     <div className="w-2 h-2 rounded-full bg-white"></div>
                   </div>
 
@@ -452,8 +486,8 @@ export default function Portfolio() {
                   <div className="flex-grow bg-[#252525] p-6 rounded-lg border border-gray-800">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
                       <div>
-                        <h3 className="text-xl font-semibold">{experience.title}</h3>
-                        <p className="text-purple-400 mb-4">{experience.company}</p>
+                        <h3 className="text-xl text-purple-400 font-semibold">{experience.title}</h3>
+                        <p className="text mb-4">{experience.company }</p>
                       </div>
                       <div className="text-gray-400 font-medium whitespace-nowrap">{experience.period}</div>
                     </div>
