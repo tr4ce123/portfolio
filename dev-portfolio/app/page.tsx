@@ -423,7 +423,7 @@ export default function Portfolio() {
 
               </p>
               <div className="flex space-x-4">
-                <a
+                {/* <a
                   href="https://drive.google.com/file/d/1LI412icn9QQ6yxfIr1rocF3vG4kbVKzP/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -431,7 +431,7 @@ export default function Portfolio() {
                 >
                   <FileText className="h-4 w-4" />
                   Resume
-                </a>
+                </a> */}
                 <a
                   href="https://github.com/tr4ce123"
                   target="_blank"
