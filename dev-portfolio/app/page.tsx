@@ -79,17 +79,6 @@ export default function Portfolio() {
       ],
     },
     {
-      category: "Frontend",
-      icon: <Layers className="w-6 h-6" />,
-      items: [
-        "React",
-        "Angular",
-        "Tailwind CSS",
-        "Node.js",
-        "Jest"
-      ],
-    },
-    {
       category: "Backend",
       icon: <Server className="w-6 h-6" />,
       items: [
@@ -112,7 +101,19 @@ export default function Portfolio() {
         "Firebase",
         "Google Cloud",
         "OpenShift",
-        "Docker"
+        "Docker",
+        "Kubernetes"
+      ],
+    },
+    {
+      category: "Frontend",
+      icon: <Layers className="w-6 h-6" />,
+      items: [
+        "React",
+        "Angular",
+        "Tailwind CSS",
+        "Node.js",
+        "Jest"
       ],
     },
     {
@@ -121,9 +122,7 @@ export default function Portfolio() {
       items: [
         "Git",
         "CI/CD",
-        "Agile",
-        "Shell Scripting",
-        "Ansible"
+        "Agile"
       ],
     },
   ]
@@ -182,16 +181,16 @@ export default function Portfolio() {
 
   const experiences = [
     {
-      title: "Software Engineer Intern",
+      title: "Software Engineer Intern - Fall",
       company: "Nutanix",
-      period: "May 2025 - Present",
-      description: "Excited to join the Core Performance team at Nutanix, where I'll be working on optimizing and enhancing system performance for enterprise cloud solutions.",
+      period: "August 2025 - Present",
+      description: "Excited to return to the Core Performance team at Nutanix, continuing to work on optimizing and enhancing system performance for enterprise cloud solutions.",
       achievements: [],
-      technologies: ["Python", "C++", "Ansible", "Shell Scripting"],
+      technologies: ["Python", "Docker", "Kubernetes", "Cloud Computing"],
       isCurrent: true,
     },
     {
-      title: "Lead Software Engineer",
+      title: "Team Lead",
       company: "Centible - App Team Carolina",
       period: "May 2025 - Present",
       description: "Leading the direction and development of Centible, a student-led startup comprised a 20-member Agile team, helping 500+ users track and understand their spending habits.",
@@ -201,6 +200,19 @@ export default function Portfolio() {
       ],
       technologies: ["Swift", "StoreKit API", "Firebase", "Agile Methodologies"],
       isCurrent: true,
+    },
+    {
+      title: "Software Engineer Intern - Summer",
+      company: "Nutanix",
+      period: "May 2025 - August 2025",
+      description: "Developed automated testing infrastructure and performance benchmarking tools for Nutanix's enterprise storage platform, focusing on system reliability and efficiency improvements.",
+      achievements: [
+        "Built a Python-based performance testing system using Docker and Kubernetes to run storage benchmarks with consistent results",
+        "Improved testing efficiency to validate 340 more commits quarterly, reducing release delays",
+        "Replaced complex YAML/Ansible system with Python framework, reducing Kubernetes resource usage by 30% and cutting infrastructure costs"
+      ],
+      technologies: ["Python", "Docker", "Kubernetes", "Cloud Computing"],
+      isCurrent: false,
     },
     {
       title: "Software Engineer",
@@ -388,7 +400,7 @@ export default function Portfolio() {
             Computer Science Student & Software Engineer
           </h2>
           <p className="max-w-2xl mx-auto text-gray-400 mb-10 text-lg">
-            I'm a third-year Computer Science student at UNC Chapel Hill who's passionate about building high-impact, innovative software solutions.
+            I'm a fourth-year Computer Science student at UNC Chapel Hill who's passionate about building high-impact, innovative software solutions.
           </p>
           <div className="flex justify-center space-x-4">
             <Button onClick={() => scrollToSection(aboutRef)} className="flex items-center gap-2">
@@ -414,7 +426,7 @@ export default function Portfolio() {
             <div>
               <h3 className="text-2xl font-semibold mb-4">CS @ UNC Chapel Hill</h3>
               <p className="text-gray-300 mb-6">
-                I'm currently a Software Engineer Intern at <span className="text-purple-300">Nutanix</span>! I'm a third-year at UNC Chapel Hill pursuing a B.S. in Computer Science with a minor in Data Science. 
+                I'm currently a Software Engineer Intern at <span className="text-purple-300">Nutanix</span>! I'm a fourth-year at UNC Chapel Hill pursuing a B.S. in Computer Science with a minor in Data Science. 
               </p>
               <p className="text-gray-300 mb-6">
                 Outside of work and class, I love to build computers and I'm a huge UNC sports fan. I also love 
