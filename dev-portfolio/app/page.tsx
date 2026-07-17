@@ -181,25 +181,35 @@ export default function Portfolio() {
 
   const experiences = [
     {
+      title: "Associate Software Engineer",
+      company: "Capital One",
+      period: "August 2026 - Present",
+      description:
+        "Developing software and cloud-based solutions as part of Capital One's engineering organization.",
+      achievements: [],
+      technologies: [],
+      isCurrent: true,
+    },
+    {
       title: "Software Engineer Intern - Fall",
       company: "Nutanix",
-      period: "August 2025 - Present",
+      period: "August 2025 - December 2025",
       description: "Excited to return to the Core Performance team at Nutanix, continuing to work on optimizing and enhancing system performance for enterprise cloud solutions.",
       achievements: [],
       technologies: ["Python", "Docker", "Kubernetes", "Cloud Computing"],
-      isCurrent: true,
+      isCurrent: false,
     },
     {
       title: "Team Lead",
       company: "Centible - App Team Carolina",
-      period: "May 2025 - Present",
+      period: "May 2025 - December 2025",
       description: "Leading the direction and development of Centible, a student-led startup comprised a 20-member Agile team, helping 500+ users track and understand their spending habits.",
       achievements: [
         // "On track to generate over $5,500 in annual revenue through premium subscriptions and venture funding",
         // "Led the development of X new features for the iOS app",
       ],
       technologies: ["Swift", "StoreKit API", "Firebase", "Agile Methodologies"],
-      isCurrent: true,
+      isCurrent: false,
     },
     {
       title: "Software Engineer Intern - Summer",
@@ -397,10 +407,10 @@ export default function Portfolio() {
             </span>
           </h1>
           <h2 className="text-2xl md:text-3xl mb-8 text-gray-300">
-            Computer Science Student & Software Engineer
+            Associate Software Engineer @ Capital One
           </h2>
           <p className="max-w-2xl mx-auto text-gray-400 mb-10 text-lg">
-            I'm a fourth-year Computer Science student at UNC Chapel Hill who's passionate about building high-impact, innovative software solutions.
+            UNC Chapel Hill Computer Science graduate building scalable software and cloud infrastructure, with experience across enterprise systems, backend engineering, and full-stack development.
           </p>
           <div className="flex justify-center space-x-4">
             <Button onClick={() => scrollToSection(aboutRef)} className="flex items-center gap-2">
@@ -420,13 +430,15 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
               <div className="aspect-square w-full max-w-md mx-auto rounded-full overflow-hidden border-4 border-gray-700">
-                <img src="/IMG_9478.jpg?height=400&width=400" alt="Profile" className="w-full h-full object-cover" />
+                <img src="/pfp.png?height=400&width=400" alt="Profile" className="w-full h-full object-cover" />
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-4">CS @ UNC Chapel Hill</h3>
+              <h3 className="text-2xl font-semibold mb-4">
+                B.S. Computer Science • UNC Chapel Hill
+              </h3>
               <p className="text-gray-300 mb-6">
-                I'm currently a Software Engineer Intern at <span className="text-purple-300">Nutanix</span>! I'm a fourth-year at UNC Chapel Hill pursuing a B.S. in Computer Science with a minor in Data Science. 
+                I'm an Associate Software Engineer at <span className="text-blue-300">Capital One</span> and graduated from UNC Chapel Hill with a B.S. in Computer Science. I enjoy building scalable backend systems, cloud infrastructure, and full-stack applications that solve real-world problems. 
               </p>
               <p className="text-gray-300 mb-6">
                 Outside of work and class, I love to build computers and I'm a huge UNC sports fan. I also love 
@@ -627,14 +639,14 @@ export default function Portfolio() {
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             <a
-              href="mailto:gglasby@unc.edu"
+              href="mailto:trace.glasby@gmail.com"
               className="bg-[#252525] border border-gray-800 rounded-lg p-6 flex flex-col items-center text-center hover:bg-[#2a2a2a] transition-colors"
             >
               <div className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 flex items-center justify-center mb-4">
                 <Mail className="h-5 w-5 text-white" />
               </div>
               <h3 className="font-medium text-lg mb-2">Email</h3>
-              <p className="text-gray-400">gglasby@unc.edu</p>
+              <p className="text-gray-400">trace.glasby@gmail.com</p>
             </a>
 
             <a
